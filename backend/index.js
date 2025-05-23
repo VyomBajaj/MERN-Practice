@@ -10,6 +10,12 @@ connectToMongo();
 const app = express()
 const PORT = 8000
 
+app.use(express.json())
+app.use(express.urlencoded({
+    extended:true,
+    parameterLimit:5000
+}))
+
 app.use('/api/auth',authRouter)
 app.use('/api/notes',notesRouter)
 
