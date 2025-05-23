@@ -1,0 +1,51 @@
+# ===================
+# Global ignores
+# ===================
+
+# Dependency directories
+**/node_modules/
+
+# Build outputs
+/frontend/build/
+/backend/dist/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor folders
+.vscode/
+.idea/
+
+# Environment variable files
+**/.env
+**/.env.*  # Support for .env.development, .env.production, etc.
+
+# Optional lock files (uncomment if your team ignores them)
+/frontend/package-lock.json
+/backend/package-lock.json
+
+# Optional coverage reports
+/coverage/
+/frontend/coverage/
+/backend/coverage/
+
+# Optional test reports
+/junit.xml
+/test-results/
+
+# Optional: ignore SQLite or temporary DBs
+*.sqlite
+*.db
+*.sqlite3
+*.log
+
+# Optional: local development files
+.env.local
+.env.*.local
