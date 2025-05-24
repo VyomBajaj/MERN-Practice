@@ -3,6 +3,7 @@ import {body,validationResult} from 'express-validator'
 import { User } from '../models/user.model.js';
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken"
+import { fetchUser } from '../middleware/fetchUser.js';
 
 const router = express.Router();
 
@@ -92,5 +93,20 @@ router.post('/login',[
         res.status(500).send("InternalServerError:Some error occured in login route");
     }
 })
+
+// Route 3 - Get Logged in user details using Post - Requires Log in
+
+router.post('/getUser',fetchUser,async(req,res)=>{
+    try {
+        const userId = req.user.id;
+        const user = await User.findById(userId).select('-password')
+        res.send(user)  
+    } 
+    catch (error) {
+        console.log(error.message);
+        res.status(500).send("Internal Server Error")
+    }
+})
+
 
 export default router
